@@ -32,7 +32,8 @@ body {
 
 .meBox {
     flex: 0 0 auto;
-    width: 320px;
+    width: 100%;
+    max-width: 380px;
     background-color: white;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -82,18 +83,18 @@ body {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
-    border-right: 2px solid;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 2s steps(20, end), blink-caret 0.3s step-end infinite alternate;
     margin: 0;
     line-height: 1.2;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .meBox-title p:last-child {
     font-size: 0.9rem;
     color: #666;
     margin-top: 5px;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .meBox-title .fg {
@@ -141,22 +142,25 @@ body {
 .meBox-Button {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 5px;
 }
 
 .meBox-Button a {
-    flex: 0 0 auto;
-    min-width: 120px;
-    padding: 10px 15px;
+    flex: 1 1 auto;
+    min-width: 90px;
+    padding: 10px 12px;
     text-decoration: none;
     color: #666;
     transition: all 0.3s ease;
     border-radius: 4px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .meBox-Button a:hover {
@@ -386,10 +390,10 @@ body {
     }
 
     .meBox-Button a {
-        flex: 1 1 calc(50% - 3px);
+        flex: 1 1 calc(33.333% - 7px);
         min-width: auto;
-        padding: 8px 10px;
-        font-size: 0.85rem;
+        padding: 8px 8px;
+        font-size: 0.75rem;
     }
 
     #cmdBox {
