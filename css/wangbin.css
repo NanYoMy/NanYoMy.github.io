@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -13,61 +14,56 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 #box {
-    /* background-color: red; */
-    width: 1200px;
-    height: 100px;
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding-top: 5%;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
 }
 
 .meBox {
-    float: left;
-    width: 20rem;
-    height: 25rem;
+    flex: 0 0 auto;
+    width: 320px;
     background-color: white;
-    margin-top: 100px;
-    border-radius: 2%;
-    transition: all 0.3s;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .meBox:hover {
-    width: 21rem;
-    height: 26rem;
-    margin: 95px 0 0 -5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .headPhoto {
-    width: 8rem;
-    height: 8rem;
-    background: url(https://avatars.githubusercontent.com/u/3098477?v=4) no-repeat;
-    background-size: cover;
+    width: 120px;
+    height: 120px;
+    background: url(https://avatars.githubusercontent.com/u/3098477?v=4) no-repeat center/cover;
     border-radius: 50%;
-    position: relative;
-    top: -15%;
-    left: 50%;
-    margin-left: -4rem;
-    transition: all 0.3s;
+    margin: -40px auto 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .meBox:hover .headPhoto {
-    width: 9rem;
-    height: 9rem;
-    margin: -0.5rem 0 0 -4.5rem;
-    transform: rotate(360deg);
-}
-
-.headPhoto:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: rotate(360deg) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .meBox-title {
-    width: auto;
-    margin: 0 auto;
+    width: 100%;
+    margin: 10px 0 20px;
 }
 
 @keyframes typing {
@@ -82,156 +78,154 @@ body {
     }
 }
 
-.meBox-title p {
-    font-size: 1.2rem;
-    border-right: .1em solid;
-    width: 12ch;
+.meBox-title p:first-child {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    border-right: 2px solid;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2s steps(20, end), blink-caret .3s step-end infinite alternate;
-    margin: -30px 0 0 90px;
-    transition: all 0.3s;
+    animation: typing 2s steps(20, end), blink-caret 0.3s step-end infinite alternate;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.meBox:hover .meBox-title p {
-    font-size: 1.3rem;
+.meBox-title p:last-child {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
 }
 
 .meBox-title .fg {
     width: 80%;
     height: 2px;
     background-image: linear-gradient(to left, #3498db, #2980b9);
-    margin: 5% 0 0 10%;
+    margin: 15px auto 0;
 }
 
 .meBox-text {
-    width: 80%;
-    height: 45%;
-    overflow: hidden;
+    width: 100%;
     text-align: center;
-    color: rgb(70, 70, 70);
-    animation-name: meBox-text;
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    margin: 5% 0 0 10%;
-    transition: all 0.3s;
-}
-
-.meBox-text p {
-    margin-top: 5px;
-}
-
-.meBox:hover .meBox-text {
-    font-size: 1.05rem;
+    color: #464646;
+    margin: 20px 0;
+    animation: meBox-text 2s forwards;
 }
 
 @keyframes meBox-text {
     0% {
-        transform: translateY(50px);
-        color: white;
+        transform: translateY(10px);
+        opacity: 0;
     }
 
     100% {
         transform: translateY(0);
-        color: rgb(70, 70, 70);
+        opacity: 1;
     }
 }
 
+.meBox-text p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.meBox-text i {
+    margin-right: 5px;
+    color: #3498db;
+}
+
+.meBox:hover .meBox-text {
+    font-size: 1.02rem;
+}
+
 .meBox-Button {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 .meBox-Button a {
-    display: inline-block;
-    float: left;
-    width: 158px;
-    height: 50px;
-    margin-top: 13px;
-    line-height: 50px;
+    flex: 0 0 auto;
+    min-width: 120px;
+    padding: 10px 15px;
     text-decoration: none;
-    color: gray;
-    transition: all 0.3s;
+    color: #666;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .meBox-Button a:hover {
-    color: rgb(0, 132, 255);
-    font-size: 1.2rem;
-}
-
-.meBox:hover .meBox-Button a {
-    width: 165px;
-    margin-top: 10px;
+    color: #0084ff;
+    background-color: #f0f0f0;
+    transform: scale(1.05);
 }
 
 #cmdBox {
-    width: 710px;
-    height: 550px;
-    float: right;
-    /* background-color: green; */
+    flex: 1 1 auto;
+    min-width: 300px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .cmd {
-    width: 600px;
-    height: 400px;
-    border-radius: 10px 10px 5px 5px;
+    width: 100%;
+    min-height: 350px;
+    border-radius: 12px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
     font-size: 14px;
-    color: rgb(88, 89, 92);
-    position: relative;
-    top: 0;
-    left: 0;
+    color: #585c5c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cmd:hover {
-    width: 610px;
-    height: 410px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    margin: -5px 0 0 -5px;
-    z-index: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
 }
 
 .cmd .title {
     width: 100%;
-    height: 25px;
-    background-image: linear-gradient(to top, rgb(184, 184, 184), white);
-    font-size: 14px;
-    line-height: 25px;
-}
-
-.cmd .title span {
-    display: inline-block;
-    width: 70%;
-    text-align: center;
-    /* background-color: red; */
+    height: 30px;
+    background-image: linear-gradient(to bottom, rgb(200, 200, 200), rgb(180, 180, 180));
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 13px;
+    gap: 10px;
 }
 
 .cmd .click {
-    margin-left: 10px;
-    float: left;
+    display: flex;
+    gap: 8px;
 }
 
 .cmd .click div {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    margin: 8px 0 0 10px;
-    float: left;
+    transition: all 0.2s ease;
 }
 
 .cmd .click .red {
-    background-color: #ff1b22;
+    background-color: #ff5f56;
     box-shadow: 0 0 1px #ff1b22;
 }
 
 .cmd .click .red:hover {
-    background-color: #ff6268;
+    background-color: #ff7967;
     box-shadow: 0 0 3px #ff1b22;
 }
 
 .cmd .click .yellow {
-    background-color: #ffaf00;
+    background-color: #ffbd2e;
     box-shadow: 0 0 1px #ffaf00;
 }
 
@@ -241,7 +235,7 @@ body {
 }
 
 .cmd .click .green {
-    background-color: #00931a;
+    background-color: #27c93f;
     box-shadow: 0 0 1px #00931a;
 }
 
@@ -250,165 +244,256 @@ body {
     box-shadow: 0 0 3px #00931a;
 }
 
+.cmd .title span {
+    flex: 1;
+    text-align: center;
+}
+
 .cmdText {
-    padding-top: 10px;
+    padding: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+    font-family: 'Fira Code', monospace;
+}
+
+.cmdText p {
+    margin: 8px 0;
+    word-break: break-word;
+}
+
+.cmdText p strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.cmdText em {
+    color: #999;
+    font-style: italic;
+}
+
+.cmdText span {
+    margin-right: 4px;
+}
+
+.cmdText ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.cmdText ul li {
+    margin: 6px 0;
     padding-left: 15px;
-}
-
-.cmd2 {
     position: relative;
-    top: -280px;
-    left: 100px;
+    line-height: 1.6;
+    word-break: break-word;
 }
 
-.cmd2 .cmdText .ul {
-    margin-left: 15px;
-}
-
-.cmd2 .cmdText .ul a {
-    text-decoration: none;
-    color: rgb(88, 89, 92);
-}
-
-.cmd2 .cmdText .ul a:hover {
-    color: rgb(0, 132, 255);
+.cmdText ul li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #3498db;
 }
 
 #footer {
     width: 100%;
     color: white;
-    float: left;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 30px;
-    /* background-color: blue; */
+    padding: 20px;
+    margin-top: 40px;
 }
 
 #footer a {
     text-decoration: none;
-    color: white;
+    color: #87ceeb;
+    transition: color 0.3s ease;
 }
 
 #footer a:hover {
-    color: rgb(0, 81, 255);
+    color: #0084ff;
 }
 
-/* 自适应 */
-@media screen and (max-width: 1250px) {
+/* 平板设备优化 */
+@media screen and (max-width: 1024px) {
     #box {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+
+    .meBox {
         width: 100%;
-    }
-
-    .meBox {
-        margin-left: 3%;
-    }
-
-    .meBox:hover {
-        width: 21rem;
-        height: 26rem;
-        margin: 95px 0 0 2.5%;
-    }
-
-    #cmdBox {
-        margin-right: 3%;
-    }
-}
-
-@media screen and (max-width: 1120px) {
-    .meBox {
-        float: none;
-        margin: 100px auto 100px;
-    }
-
-    .meBox:hover {
-        width: 20rem;
-        height: 25rem;
-        margin: 105px auto 100px;
-    }
-
-    .meBox:hover .meBox-Button a {
-        width: 158px;
-        height: 50px;
-        margin-top: 13px;
-    }
-
-    .meBox:hover .meBox-title p {
-        font-size: 1.2rem;
-    }
-
-    .meBox:hover .headPhoto {
-        width: 8rem;
-        height: 8rem;
-        margin: -0.5rem 0 0 -4rem;
-        transform: rotate(360deg);
-    }
-
-    #cmdBox {
-        float: none;
-        margin: 0 auto 100px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .meBox {
-        width: 300px;
-    }
-
-    .meBox:hover {
-        width: 300px;
-        height: 25rem;
-        margin: 100px auto 100px;
-    }
-
-    .meBox-Button a:hover {
-        color: rgb(0, 132, 255);
-    }
-
-    .meBox:hover .meBox-Button a {
-        width: 150px;
-        margin-top: 13px;
-    }
-
-    .meBox:hover .meBox-title p {
-        font-size: 1.2rem;
-    }
-
-    .meBox:hover .headPhoto {
-        width: 8rem;
-        height: 8rem;
-        margin: -0.5rem 0 0 -4rem;
-        transform: rotate(360deg);
-    }
-
-    .meBox:hover .meBox-text {
-        font-size: 1rem;
-    }
-
-    .meBox-Button a {
-        width: 150px;
+        max-width: 400px;
     }
 
     #cmdBox {
         width: 100%;
-        height: 850px;
+        max-width: 100%;
+        flex-direction: column;
     }
 
     .cmd {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* 手机设备优化 */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 15px;
     }
 
-    .cmd2 {
-        position: relative;
-        top: 20px;
-        left: 0;
+    #box {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 15px 80px;
     }
 
-    .cmd:hover {
-        width: 90%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-        margin: 0 auto;
-        z-index: 1;
+    .meBox {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .meBox:hover {
+        transform: translateY(-3px);
+    }
+
+    .headPhoto {
+        width: 100px;
+        height: 100px;
+        margin: -30px auto 15px;
+    }
+
+    .meBox-title p:first-child {
+        font-size: 1.5rem;
+    }
+
+    .meBox-title p:last-child {
+        font-size: 0.85rem;
+    }
+
+    .meBox-text p {
+        font-size: 0.9rem;
+    }
+
+    .meBox-Button {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .meBox-Button a {
+        flex: 1 1 calc(50% - 3px);
+        min-width: auto;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    #cmdBox {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .cmd {
+        width: 100%;
+        min-height: 300px;
+        margin: 0;
+    }
+
+    .cmd .title {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+    .cmd .click div {
+        width: 10px;
+        height: 10px;
+    }
+
+    .cmdText {
+        padding: 15px;
+        max-height: 500px;
+        font-size: 13px;
+    }
+
+    .cmdText p {
+        font-size: 13px;
+        margin: 6px 0;
+    }
+
+    .cmdText ul li {
+        font-size: 13px;
+        padding-left: 12px;
+        margin: 5px 0;
+    }
+
+    .cmdText span {
+        font-size: 13px;
+    }
+
+    #footer {
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 超小屏设备优化 */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    #box {
+        padding: 15px 10px 70px;
+        gap: 15px;
+    }
+
+    .meBox {
+        padding: 12px;
+    }
+
+    .meBox-title p:first-child {
+        font-size: 1.3rem;
+    }
+
+    .meBox-title p:last-child {
+        font-size: 0.8rem;
+    }
+
+    .meBox-text p {
+        font-size: 0.85rem;
+        margin: 5px 0;
+    }
+
+    .meBox-Button a {
+        flex: 1 1 calc(50% - 3px);
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .cmdText {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .cmdText p {
+        font-size: 12px;
+    }
+
+    .cmdText ul li {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .cmd .title span {
+        font-size: 11px;
+    }
+
+    #footer {
+        font-size: 0.85rem;
+        margin-top: 20px;
     }
 }
