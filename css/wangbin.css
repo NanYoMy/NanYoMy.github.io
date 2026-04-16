@@ -33,12 +33,12 @@ body {
 .meBox {
     flex: 0 0 auto;
     width: 100%;
-    max-width: 380px;
+    max-width: 420px;
     background-color: white;
     border-radius: 12px;
     transition: all 0.3s ease;
     text-align: center;
-    padding: 20px;
+    padding: 25px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -80,11 +80,11 @@ body {
 }
 
 .meBox-title p:first-child {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #333;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.3;
     word-wrap: break-word;
     word-break: break-word;
 }
@@ -92,9 +92,10 @@ body {
 .meBox-title p:last-child {
     font-size: 0.9rem;
     color: #666;
-    margin-top: 5px;
+    margin-top: 8px;
     word-wrap: break-word;
     word-break: break-word;
+    line-height: 1.4;
 }
 
 .meBox-title .fg {
@@ -372,11 +373,11 @@ body {
     }
 
     .meBox-title p:first-child {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .meBox-title p:last-child {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .meBox-text p {
